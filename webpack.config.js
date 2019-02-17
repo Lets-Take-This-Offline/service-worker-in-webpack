@@ -5,7 +5,8 @@ const ClientConfig = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
-  }
+  },
+  devtool: 'cheap-source-map'
 };
 
 const ServiceWorkerConfig = {
@@ -15,7 +16,8 @@ const ServiceWorkerConfig = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'serviceworker.js'
-    }
+    },
+    devtool: 'cheap-source-map'
 };
 
 module.exports = [ ClientConfig, ServiceWorkerConfig ];

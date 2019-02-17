@@ -3,7 +3,7 @@ window.addEventListener('online', function(e) {
 });
 
 window.addEventListener('offline', function(e) {
-    document.getElementById('offline').innerHTML = 'offline';
+    document.getElementById('online').innerHTML = 'offline';
 });
 
 if(navigator.serviceWorker) {
