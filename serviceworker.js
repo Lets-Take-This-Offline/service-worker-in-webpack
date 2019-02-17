@@ -1,5 +1,8 @@
+var version = require('./package.json').version;
+
 self.oninstall = function(event) {
-    caches.open('sw-in-webpack')
+    console.log('version ', version);
+    caches.open('sw-in-webpack-v' + version)
     .then(function(cache) {
         cache.addAll([
             '/',
