@@ -1,8 +1,10 @@
-### How to make a service worker work with webpack
+# How to make a service worker work with webpack
 
 If you've ever tried to use webpack plus a service worker outside of a framework, chances are you ended up very frustrated. It can seem like a service worker _just won't work_ with webpack.
 
 Good news! I'm here to tell you that that isn't so! A service worker can certainly work with webpack, with just a few tweaks to our webpack config. In this post, I'll show you all you need.
+
+### A minimal webpack config
 
 Let's start with a simple webpack config as a reference.
 
@@ -17,11 +19,13 @@ module.exports = {
   }
 };
 ```
-<sub>Credit: [Devin Clark](link)</sub>
+<sub>Credit: [Devin Clark](https://github.com/DevinClark/my-little-webpack)</sub>
 
 In this webpack config we are telling webpack the entry point is our `index.js` file, and telling it to bundle everything into a `dist` directory, and all our JavaScript (in this case, only the one file) should be bundled in the `bundle.js` file.
 
-This alone won't work for a service worker. EXPLAIN WHY HERE
+This alone won't work for a service worker. webpack's target will default to `web` which 
+
+### Add a service worker config
 
 Let's do a little tweak to our config to get it up and running for a service worker.
 
@@ -51,3 +55,5 @@ module.exports = [ ClientConfig, ServiceWorkerConfig ];
 You'll notice that we now have a config for both our client code and our service worker code. This is important because we need to specify a target of webworker in order for webpack to properly build our service worker. Also, since we now have two configs, we'll move `module.exports` down to the bottom and convert it to an array.
 
 And that's it! Now you'll be able to use webpack and a service worker in harmony.
+
+**If you would like to learn more about service workers, please check out [serviceworkerbook.com](link) and sign up for my mailing list. You'll be the first to know when my book, _Let's Take This Offline_, is available.**

@@ -13,5 +13,5 @@ if(navigator.onLine) {
 }
 
 if(navigator.serviceWorker) {
-    navigator.serviceWorker.register('serviceworker.js');
+    navigator.serviceWorker.register('./serviceworker.js');
 }
